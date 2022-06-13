@@ -16,6 +16,7 @@ namespace UrlShortener.Domain.Url
         {
             _domainDbContext = domainDbContext;
         }
+
         public Task<Data.Entities.Url?> GetUrlById(long id)
         {
             return _domainDbContext.Urls.FirstOrDefaultAsync(u => u.Id == id);

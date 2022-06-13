@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using UrlShortener.Data;
 using UrlShortener.Domain.Url;
+using UrlShortener.WebApplication.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

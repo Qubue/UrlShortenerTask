@@ -27,6 +27,7 @@ namespace UrlShortener.WebApplication.Controllers
         public async Task<IActionResult> GetShortUrl([FromQuery] string url)
         {
             var shortUrl = await _urlShortener.GetShortUrl(url);
+            _logger.LogInformation("Generated {url} for {url}", shortUrl, url);
             return Json(new { url = $"{Request.Scheme}://{Request.Host}/{RoutePrefix}/{shortUrl}" });
         }
 
@@ -34,6 +35,10 @@ namespace UrlShortener.WebApplication.Controllers
         public async Task<IActionResult> GetFullUrl([FromRoute] string url)
         {
             var fullUrl = await _urlShortener.GetFullUrl(url);
+            if(fullUrl is null)
+            {
+                return NotFound(fullUrl);
+            }
             return Redirect(fullUrl);
         }
 
