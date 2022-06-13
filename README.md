@@ -26,7 +26,10 @@ The application is using reactJS on frontend. It is necessary to have nodejs ins
 3. Add pagination for already registered URL
 4. Deeper analysis of possible edge cases
 5. Try to make the url tinier
-
+6. Make it more generic, allow to store any long string.
+6.1 Validate input based on input type- ITypedValidator
+6.2 URLTransformer could depend on ITypedValidator interface
+7. Move the validation to separate class instead of validating data in URLtransformer
 
 ## Task Description 
 >Build a URL shortening service like TinyURL. This service will provide short aliases redirecting to long URLs.
