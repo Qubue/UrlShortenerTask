@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using UrlShortener.WebApplication.Models;
 
 namespace UrlShortener.WebApplication.Controllers
 {
