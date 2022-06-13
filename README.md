@@ -3,12 +3,29 @@
 Provide some details about your application 
 
 ## How to start?
-`Section description:  What should be done before application start(e.g db migration)`
+
+### Prequisties
+The application is using reactJS on frontend. It is necessary to have nodejs installed on the machine. 
+
+### How to run
+1. From UrlShortener.WebApplication/src folder run npm start.
+2. Go to the localhost:3000
+3. Run the UrlShortener.WebApplication
+3. The input with 2 button is present
+4. In the input provide the url
+5. Click button submit to generate shortUrl
+6. Click button getAll to get all the generated mappings
+
 ## Key assumptions 
 `Section description: If you have any assumption during your implementation, please provide them here.`
 
 ## Future Ideas
-`Section description:  If you haven't enough time to implement some feature or ideas, please provide them here.`
+# To do:
+1. Add some visible information on frontnet when passed url is not valid (currently only backend returns 400) or any other request fails
+2. Extend unit tests for all methods and added classes
+3. Add pagination for already registered URL
+4. Deeper analysis of possible edge cases
+5. Try to make the url tinier
 
 
 ## Task Description 
