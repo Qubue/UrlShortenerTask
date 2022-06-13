@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace UrlShortener.Domain.Url
 {
-    public sealed class UrlShortener : IUrlShortener
+    public sealed class UrlTransformer : IUrlTransformer
     {
         private readonly IUrlManager _urlManager;
         private readonly IBaseEncoder _baseEncoder;
-        public UrlShortener(IUrlManager urlManager, IBaseEncoder baseEncoder)
+
+        public UrlTransformer(IUrlManager urlManager, IBaseEncoder baseEncoder)
         {
             _urlManager = urlManager;
             _baseEncoder = baseEncoder;

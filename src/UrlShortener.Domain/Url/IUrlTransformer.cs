@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UrlShortener.Domain.Url
 {
-    public interface IUrlShortener
+    public interface IUrlTransformer
     {
         Task<string> GetShortUrl(string shortUrl);
         Task<string?> GetFullUrl(string longUrl);

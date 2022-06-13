@@ -11,11 +11,11 @@ namespace UrlShortener.WebApplication.Controllers
     {
         private const string RoutePrefix = "url";
         private readonly ILogger<UrlController> _logger;
-        private readonly IUrlShortener _urlShortener;
+        private readonly IUrlTransformer _urlShortener;
         private readonly IUrlManager _urlManager;
         private readonly IBaseEncoder _baseEncoder;
 
-        public UrlController(ILogger<UrlController> logger, IUrlShortener urlShortener, IUrlManager urlManager, IBaseEncoder baseEncoder)
+        public UrlController(ILogger<UrlController> logger, IUrlTransformer urlShortener, IUrlManager urlManager, IBaseEncoder baseEncoder)
         {
             _logger = logger;
             _urlShortener = urlShortener;

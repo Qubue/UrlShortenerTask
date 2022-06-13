@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUrlManager, UrlManager>();
 builder.Services.AddSingleton<IBaseEncoder, BaseEncoder>();
-builder.Services.AddScoped<IUrlShortener, UrlShortener.Domain.Url.UrlShortener>();
+builder.Services.AddScoped<IUrlTransformer, UrlShortener.Domain.Url.UrlTransformer>();
 builder.Services.AddDbContext<DomainDbContext>();
 builder.Services.AddSpaStaticFiles(configuration => { configuration.RootPath = "src/build"; });
 builder.Services.AddCors(options =>

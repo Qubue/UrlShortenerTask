@@ -9,23 +9,23 @@ using UrlShortener.Domain.Url;
 
 namespace UrlShortener.Domain.Tests.Url
 {
-    internal class UrlShortenerTest : BaseTests
+    internal class UrlTransformerTests : BaseTests
     {
-        private Domain.Url.UrlShortener _urlShortener;
+        private Domain.Url.UrlTransformer _urlShortener;
         private readonly IUrlManager _urlManager;
         private readonly IBaseEncoder _baseEncoder;
 
-        public UrlShortenerTest()
+        public UrlTransformerTests()
         {
             _urlManager = Substitute.For<IUrlManager>();
             _baseEncoder = Substitute.For<IBaseEncoder>();
         }
 
         [Test]
-        public async Task UrlShortener_Get_Short_Url_Invalid_Url_Should_Throw_Exception()
+        public async Task UrlTransformer_Get_Short_Url_Invalid_Url_Should_Throw_Exception()
         {
             var url = Any<string>();
-            _urlShortener = new Domain.Url.UrlShortener(_urlManager, _baseEncoder);
+            _urlShortener = new Domain.Url.UrlTransformer(_urlManager, _baseEncoder);
 
             Assert.ThrowsAsync<ArgumentException>(() => _urlShortener.GetShortUrl(url));
             await _urlManager.Received(0).AddUrl(Any<string>());
@@ -34,7 +34,7 @@ namespace UrlShortener.Domain.Tests.Url
         }
 
         [Test]
-        public async Task UrlShortener_Get_Short_Url_Should_Add_Url_To_Database()
+        public async Task UrlTransformer_Get_Short_Url_Should_Add_Url_To_Database()
         {
             var url = Any<Uri>().ToString();
             var id = Any<long>();
@@ -43,7 +43,7 @@ namespace UrlShortener.Domain.Tests.Url
                 Id = id
             });
 
-           _urlShortener = new Domain.Url.UrlShortener(_urlManager, _baseEncoder);
+           _urlShortener = new Domain.Url.UrlTransformer(_urlManager, _baseEncoder);
            
             await _urlShortener.GetShortUrl(url);
             await _urlManager.Received(1).AddUrl(url);
